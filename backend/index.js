@@ -3,7 +3,7 @@ const consign = require('consign');
 const db = require('./config/db');
 
 app.db = db;
-//com isso não precisso dar require('express') nas outras pastas basta module.exports=> app => app.use...
+//com isso não precisso dar require('express') nas outras pastas basta module.exports=> app => app.use..
 consign()
     .then('./config/middlewares.js')
     .then('./api/validator.js')
