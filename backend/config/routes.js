@@ -1,4 +1,4 @@
-module.exports = app=>{
+module.exports = app => {
     app.route('/users')
         .post(app.api.user.save)
         .get(app.api.user.get)
@@ -13,7 +13,7 @@ module.exports = app=>{
         .post(app.api.category.save)
 
     //cuidado! a rota categories/tree tem de ser declarada antes da :id, senão o express entende que tree é um parametro
-    
+
     app.route('/categories/tree')
         .get(app.api.category.getTree)
 
@@ -25,12 +25,15 @@ module.exports = app=>{
     app.route('/articles')
         .get(app.api.article.get)
         .post(app.api.article.save)
-    
+
     app.route('/articles/:id')
         .get(app.api.article.getById)
         .put(app.api.article.save)
         .delete(app.api.article.remove)
- 
+
+    app.route('/categories/:id/articles')
+        .get(app.api.article.getByCategory)
+
 }
 
 //com consign usa-se essa estrutura app.<pasta>.<arquivo>.<metodo>
