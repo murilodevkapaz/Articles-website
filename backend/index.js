@@ -1,8 +1,11 @@
 const app = require('express')();
 const consign = require('consign');
 const db = require('./config/db');
+const mongoose = require('mongoose');
+require('./config/mongodb');
 
 app.db = db;
+app.mongoose = mongoose;
 //com isso não precisso dar require('express') nas outras pastas basta module.exports=> app => app.use..
 consign()
     .include('./config/passport.js')
